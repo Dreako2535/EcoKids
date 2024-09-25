@@ -18,7 +18,7 @@ import bg4 from "../../assets/images/bg/bg4.jpg";
 const Cards = () => {
   return (
 <Row>
-        <h5 className="mb-3 mt-3">Alignment Text</h5>
+        <h5 className="mb-3 mt-3">Alignment Games</h5>
         <Col md="6" lg="4">
           <Card body>
             <CardTitle tag="h5">Special Title Treatment</CardTitle>

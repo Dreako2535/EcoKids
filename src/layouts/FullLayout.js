@@ -21,7 +21,7 @@ const FullLayout = () => {
             <Outlet />
           </Container>
         </div>
-        <aside className="sidebarArea shadow" id="sidebarArea">
+        <aside className="sidebarArea shadow" id="sidebarArea" style={{zIndex:1}}>
           <SibebarIzq/>
         </aside>
       </div>

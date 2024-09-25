@@ -17,6 +17,7 @@ const Tables = lazy(() => import("../views/ui/Tables"));
 const Forms = lazy(() => import("../views/ui/Forms"));
 const Breadcrumbs = lazy(() => import("../views/ui/Breadcrumbs"));
 const Blog = lazy(() => import("../components/dashboard/Blog.js"))
+const Login = lazy(()=>import("../views/ui/Login"))
 
 /*****Routes******/
 

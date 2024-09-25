@@ -53,9 +53,9 @@ const Sidebar = () => {
         </div>
       </div>
       <div className="p-3 mt-2">
-        <Nav vertical className="sidebarNav">
+        <Nav vertical className="sidebarNav" style={{margin: "20px"}}>
           {navigation.map((navi, index) => (
-            <NavItem key={index} className="sidenav-bg">
+            <NavItem key={index} className="sidenav-bg" style={{margin: "20px"}}>
               <Link
                 to={navi.href}
                 className={
