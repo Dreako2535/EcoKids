@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
+import SibebarIzq from "./siderbarIzq";
 import { Container } from "reactstrap";
 
 const FullLayout = () => {
@@ -20,6 +21,9 @@ const FullLayout = () => {
             <Outlet />
           </Container>
         </div>
+        <aside className="sidebarArea shadow" id="sidebarArea" style={{zIndex:1}}>
+          <SibebarIzq/>
+        </aside>
       </div>
     </main>
   );
