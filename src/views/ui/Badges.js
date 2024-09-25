@@ -1,191 +1,276 @@
-import { Badge, Button, Card, CardBody, CardTitle, Row, Col } from "reactstrap";
+import {
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardTitle,
+  CardSubtitle,
+  CardGroup,
+  Button,
+  Row,
+  Col,
+} from "reactstrap";
+import Blog from "../../components/dashboard/Blog";
+import bg1 from "../../assets/images/bg/bg1.jpg";
+import bg2 from "../../assets/images/bg/bg2.jpg";
+import bg3 from "../../assets/images/bg/bg3.jpg";
+import bg4 from "../../assets/images/bg/bg4.jpg";
 
-const Badges = () => {
+const BlogData = [
+  {
+    image: bg1,
+    title: "This is simple blog",
+    subtitle: "2 comments, 1 Like",
+    description:
+      "This is a wider card with supporting text below as a natural lead-in to additional content.",
+    btnbg: "primary",
+  },
+  {
+    image: bg2,
+    title: "Lets be simple blog",
+    subtitle: "2 comments, 1 Like",
+    description:
+      "This is a wider card with supporting text below as a natural lead-in to additional content.",
+    btnbg: "primary",
+  },
+  {
+    image: bg3,
+    title: "Don't Lamp blog",
+    subtitle: "2 comments, 1 Like",
+    description:
+      "This is a wider card with supporting text below as a natural lead-in to additional content.",
+    btnbg: "primary",
+  },
+  {
+    image: bg4,
+    title: "Simple is beautiful",
+    subtitle: "2 comments, 1 Like",
+    description:
+      "This is a wider card with supporting text below as a natural lead-in to additional content.",
+    btnbg: "primary",
+  },
+];
+
+const Cards = () => {
   return (
     <div>
       {/* --------------------------------------------------------------------------------*/}
-      {/* Row*/}
+      {/* Card-1*/}
+      {/* --------------------------------------------------------------------------------*/}
+      <h5 className="mb-3">Basic Card</h5>
+      <Row>
+        {BlogData.map((blg, index) => (
+          <Col sm="6" lg="6" xl="3" key={index}>
+            <Blog
+              image={blg.image}
+              title={blg.title}
+              subtitle={blg.subtitle}
+              text={blg.description}
+              color={blg.btnbg}
+            />
+          </Col>
+        ))}
+      </Row>
+      {/* --------------------------------------------------------------------------------*/}
+      {/* Card-2*/}
       {/* --------------------------------------------------------------------------------*/}
       <Row>
-        <Col xs="12" md="12" sm="12">
-          {/* --------------------------------------------------------------------------------*/}
-          {/* Card-1*/}
-          {/* --------------------------------------------------------------------------------*/}
-          <Card>
-            <CardTitle tag="h6" className="border-bottom p-3 mb-0">
-              Badges
-            </CardTitle>
-            <CardBody className="">
-              <div>
-                <h1>
-                  Heading <Badge color="secondary">New</Badge>
-                </h1>
-                <h2>
-                  Heading <Badge color="secondary">New</Badge>
-                </h2>
-                <h3>
-                  Heading <Badge color="secondary">New</Badge>
-                </h3>
-                <h4>
-                  Heading <Badge color="secondary">New</Badge>
-                </h4>
-                <h5>
-                  Heading <Badge color="secondary">New</Badge>
-                </h5>
-                <h6>
-                  Heading <Badge color="secondary">New</Badge>
-                </h6>
-              </div>
-            </CardBody>
+        <h5 className="mb-3 mt-3">Alignment Text</h5>
+        <Col md="6" lg="4">
+          <Card body>
+            <CardTitle tag="h5">Special Title Treatment</CardTitle>
+            <CardText>
+              With supporting text below as a natural lead-in to additional
+              content.
+            </CardText>
+            <div>
+              <Button color="light-warning">Go somewhere</Button>
+            </div>
           </Card>
         </Col>
-        <Col xs="12" md="12" sm="12">
-          {/* --------------------------------------------------------------------------------*/}
-          {/* Card-2*/}
-          {/* --------------------------------------------------------------------------------*/}
-          <Card>
-            <CardTitle tag="h6" className="border-bottom p-3 mb-0">
-              Badges with Button
-            </CardTitle>
-            <CardBody className="">
-              <div>
-                <Button color="primary" outline>
-                  Notifications <Badge color="secondary">1</Badge>
-                </Button>
-                <Button color="secondary" className="ms-3" outline>
-                  Notifications <Badge color="secondary">2</Badge>
-                </Button>
-                <Button color="info" className="ms-3" outline>
-                  Notifications <Badge color="secondary">3</Badge>
-                </Button>
-                <Button color="warning" className="ms-3" outline>
-                  Notifications <Badge color="secondary">4</Badge>
-                </Button>
-                <Button color="danger" className="ms-3" outline>
-                  Notifications <Badge color="secondary">5</Badge>
-                </Button>
-              </div>
-            </CardBody>
+        <Col md="6" lg="4">
+          <Card body className="text-center">
+            <CardTitle tag="h5">Special Title Treatment</CardTitle>
+            <CardText>
+              With supporting text below as a natural lead-in to additional
+              content.
+            </CardText>
+            <div>
+              <Button color="light-danger">Go somewhere</Button>
+            </div>
           </Card>
         </Col>
-        <Col xs="12" md="6">
-          {/* --------------------------------------------------------------------------------*/}
-          {/* Card-3*/}
-          {/* --------------------------------------------------------------------------------*/}
-          <Card>
-            <CardTitle tag="h6" className="border-bottom p-3 mb-0">
-              Badges with Contextual variations
-            </CardTitle>
-            <CardBody className="">
-              <div>
-                <Badge color="primary">Primary</Badge>
-                <Badge color="secondary" className="ms-3">
-                  Secondary
-                </Badge>
-                <Badge color="success" className="ms-3">
-                  Success
-                </Badge>
-                <Badge color="danger" className="ms-3">
-                  Danger
-                </Badge>
-                <Badge color="warning" className="ms-3">
-                  Warning
-                </Badge>
-                <Badge color="info" className="ms-3">
-                  Info
-                </Badge>
-                <Badge color="light" className="ms-3">
-                  Light
-                </Badge>
-                <Badge color="dark" className="ms-3">
-                  Dark
-                </Badge>
-              </div>
-            </CardBody>
-          </Card>
-        </Col>
-        <Col xs="12" md="6">
-          {/* --------------------------------------------------------------------------------*/}
-          {/* Card-4*/}
-          {/* --------------------------------------------------------------------------------*/}
-          <Card>
-            <CardTitle tag="h6" className="border-bottom p-3 mb-0">
-              Badges with Pills
-            </CardTitle>
-            <CardBody className="">
-              <div>
-                <Badge color="primary" pill>
-                  Primary
-                </Badge>
-                <Badge color="secondary" className="ms-3" pill>
-                  Secondary
-                </Badge>
-                <Badge color="success" className="ms-3" pill>
-                  Success
-                </Badge>
-                <Badge color="danger" className="ms-3" pill>
-                  Danger
-                </Badge>
-                <Badge color="warning" className="ms-3" pill>
-                  Warning
-                </Badge>
-                <Badge color="info" className="ms-3" pill>
-                  Info
-                </Badge>
-                <Badge color="light" className="ms-3" pill>
-                  Light
-                </Badge>
-                <Badge color="dark" className="ms-3" pill>
-                  Dark
-                </Badge>
-              </div>
-            </CardBody>
-          </Card>
-        </Col>
-        <Col xs="12" md="6">
-          {/* --------------------------------------------------------------------------------*/}
-          {/* Card-5*/}
-          {/* --------------------------------------------------------------------------------*/}
-          <Card>
-            <CardTitle tag="h6" className="border-bottom p-3 mb-0">
-              Badges with Links
-            </CardTitle>
-            <CardBody className="">
-              <div>
-                <Badge href="" color="primary">
-                  Primary
-                </Badge>
-                <Badge href="" color="secondary" className="ms-3">
-                  Secondary
-                </Badge>
-                <Badge href="" color="success" className="ms-3">
-                  Success
-                </Badge>
-                <Badge href="" color="danger" className="ms-3">
-                  Danger
-                </Badge>
-                <Badge href="" color="warning" className="ms-3">
-                  Warning
-                </Badge>
-                <Badge href="" color="info" className="ms-3">
-                  Info
-                </Badge>
-                <Badge href="" color="light" className="ms-3">
-                  Light
-                </Badge>
-                <Badge href="" color="dark" className="ms-3">
-                  Dark
-                </Badge>
-              </div>
-            </CardBody>
+        <Col md="6" lg="4">
+          <Card body className="text-end">
+            <CardTitle tag="h5">Special Title Treatment</CardTitle>
+            <CardText>
+              With supporting text below as a natural lead-in to additional
+              content.
+            </CardText>
+            <div>
+              <Button color="light-success">Go somewhere</Button>
+            </div>
           </Card>
         </Col>
       </Row>
       {/* --------------------------------------------------------------------------------*/}
-      {/* Row*/}
+      {/* Card-2*/}
       {/* --------------------------------------------------------------------------------*/}
+      <Row>
+        <h5 className="mb-3 mt-3">Colored Card</h5>
+        <Col md="6" lg="3">
+          <Card body color="primary" inverse>
+            <CardTitle tag="h5">Special Title Treatment</CardTitle>
+            <CardText>
+              With supporting text below as a natural lead-in to additional
+              content.
+            </CardText>
+            <div>
+              <Button>Button</Button>
+            </div>
+          </Card>
+        </Col>
+        <Col md="6" lg="3">
+          <Card body color="info" inverse>
+            <CardTitle tag="h5">Special Title Treatment</CardTitle>
+            <CardText>
+              With supporting text below as a natural lead-in to additional
+              content.
+            </CardText>
+            <div>
+              <Button>Button</Button>
+            </div>
+          </Card>
+        </Col>
+        <Col md="6" lg="3">
+          <Card body color="success" inverse>
+            <CardTitle tag="h5">Special Title Treatment</CardTitle>
+            <CardText>
+              With supporting text below as a natural lead-in to additional
+              content.
+            </CardText>
+            <div>
+              <Button>Button</Button>
+            </div>
+          </Card>
+        </Col>
+        <Col md="6" lg="3">
+          <Card body color="danger" inverse>
+            <CardTitle tag="h5">Special Title Treatment</CardTitle>
+            <CardText>
+              With supporting text below as a natural lead-in to additional
+              content.
+            </CardText>
+            <div>
+              <Button>Button</Button>
+            </div>
+          </Card>
+        </Col>
+        <Col md="6" lg="3">
+          <Card body color="light-warning">
+            <CardTitle tag="h5">Special Title Treatment</CardTitle>
+            <CardText>
+              With supporting text below as a natural lead-in to additional
+              content.
+            </CardText>
+            <div>
+              <Button>Button</Button>
+            </div>
+          </Card>
+        </Col>
+        <Col md="6" lg="3">
+          <Card body color="light-info">
+            <CardTitle tag="h5">Special Title Treatment</CardTitle>
+            <CardText>
+              With supporting text below as a natural lead-in to additional
+              content.
+            </CardText>
+            <div>
+              <Button>Button</Button>
+            </div>
+          </Card>
+        </Col>
+        <Col md="6" lg="3">
+          <Card body color="light-success">
+            <CardTitle tag="h5">Special Title Treatment</CardTitle>
+            <CardText>
+              With supporting text below as a natural lead-in to additional
+              content.
+            </CardText>
+            <div>
+              <Button>Button</Button>
+            </div>
+          </Card>
+        </Col>
+        <Col md="6" lg="3">
+          <Card body color="light-danger">
+            <CardTitle tag="h5">Special Title Treatment</CardTitle>
+            <CardText>
+              With supporting text below as a natural lead-in to additional
+              content.
+            </CardText>
+            <div>
+              <Button>Button</Button>
+            </div>
+          </Card>
+        </Col>
+      </Row>
+      {/* --------------------------------------------------------------------------------*/}
+      {/* Card-Group*/}
+      {/* --------------------------------------------------------------------------------*/}
+      <Row>
+        <h5 className="mb-3 mt-3">Card Group</h5>
+        <Col>
+          <CardGroup>
+            <Card>
+              <CardImg alt="Card image cap" src={bg1} top width="100%" />
+              <CardBody>
+                <CardTitle tag="h5">Card title</CardTitle>
+                <CardSubtitle className="mb-2 text-muted" tag="h6">
+                  Card subtitle
+                </CardSubtitle>
+                <CardText>
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </CardText>
+                <Button>Button</Button>
+              </CardBody>
+            </Card>
+            <Card>
+              <CardImg alt="Card image cap" src={bg2} top width="100%" />
+              <CardBody>
+                <CardTitle tag="h5">Card title</CardTitle>
+                <CardSubtitle className="mb-2 text-muted" tag="h6">
+                  Card subtitle
+                </CardSubtitle>
+                <CardText>
+                  This card has supporting text below as a natural lead-in to
+                  additional content.
+                </CardText>
+                <Button>Button</Button>
+              </CardBody>
+            </Card>
+            <Card>
+              <CardImg alt="Card image cap" src={bg3} top width="100%" />
+              <CardBody>
+                <CardTitle tag="h5">Card title</CardTitle>
+                <CardSubtitle className="mb-2 text-muted" tag="h6">
+                  Card subtitle
+                </CardSubtitle>
+                <CardText>
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This card has even longer
+                  content than the first to show that equal height action.
+                </CardText>
+                <Button>Button</Button>
+              </CardBody>
+            </Card>
+          </CardGroup>
+        </Col>
+      </Row>
     </div>
   );
 };
 
-export default Badges;
+export default Cards;
