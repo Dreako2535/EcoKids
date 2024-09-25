@@ -5,21 +5,37 @@ import Temporizador from '../componentes/temporizador';
 import Puntuacion from '../componentes/puntuacion';
 import Botella from '../imgenes/botella-plastica.png'
 import Lata from '../imgenes/lata.png'
+import Papel from '../imgenes/papel.png'
+import Envoltura from '../imgenes/Envoltura.png'
+import Pañal from '../imgenes/Pañal.png'
+import Cascara from '../imgenes/cascara.png'
+import Restos from '../imgenes/restos.png'
+import Cablanca from '../imgenes/cablanca.png'
+import Caverde  from '../imgenes/caverde.png'
+import Canegra from '../imgenes/canegra.png'
+
+
+const imagenesContenedores = {
+  'Reciclables': Cablanca,
+  'No Reciclables': Canegra,
+  'Orgánicos': Caverde,
+};
+
 
 const tiposBasura = [
-    { tipo: 'Reciclables', color: 'blue' },
-    { tipo: 'No Reciclables', color: 'red' },
-    { tipo: 'Orgánicos', color: 'green' },
-  ];
-  
+  { tipo: 'Reciclables' },
+  { tipo: 'No Reciclables' },
+  { tipo: 'Orgánicos' },
+];
+
   const objetosBasura = [
     { id: 1, nombre: 'Botella de plástico', tipo: 'Reciclables', img: Botella },
     { id: 2, nombre: 'Lata de aluminio', tipo: 'Reciclables', img: Lata },
-    { id: 3, nombre: 'Papel', tipo: 'Reciclables', img: '/images/papel.png' },
-    { id: 4, nombre: 'Pañal', tipo: 'No Reciclables', img: '/images/panal.png' },
-    { id: 5, nombre: 'Envoltura de plástico', tipo: 'No Reciclables', img: '/images/envoltura_plastico.png' },
-    { id: 6, nombre: 'Cáscaras de frutas', tipo: 'Orgánicos', img: '/images/cascaras_frutas.png' },
-    { id: 7, nombre: 'Restos de comida', tipo: 'Orgánicos', img: '/images/restos_comida.png' },
+    { id: 3, nombre: 'Papel', tipo: 'NO Reciclables', img: Papel },
+    { id: 4, nombre: 'Pañal', tipo: 'No Reciclables', img:  Pañal},
+    { id: 5, nombre: 'Envoltura de plástico', tipo: 'No Reciclables', img: Envoltura },
+    { id: 6, nombre: 'Cáscaras de frutas', tipo: 'Orgánicos', img: Cascara },
+    { id: 7, nombre: 'Restos de comida', tipo: 'Orgánicos', img: Restos },
   ];
   
   function App() {
@@ -68,7 +84,6 @@ const tiposBasura = [
             <ContenedorBasura
               key={contenedor.tipo}
               tipo={contenedor.tipo}
-              color={contenedor.color}
               manejarBasuraClasificada={manejarBasuraClasificada}
             />
           ))}
