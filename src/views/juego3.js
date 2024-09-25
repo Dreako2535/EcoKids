@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import Tarjeta from '../componentes/Tarjeta';
 import Puntuacion from '../componentes/putua';
+import Botella from '../imgenes/botella-plastica.png'
+import Papel from '../imgenes/papel.png'
+import Lata from '../imgenes/lata.png'
+import Pañal from '../imgenes/Pañal.png'
+import Envoltura from '../imgenes/Envoltura.png'
+import Cascara from '../imgenes/cascara.png'
 
 const objetosBasura = [
-  { id: 1, nombre: 'Botella de plástico', reciclable: true, img: '/images/botella_plastico.png' },
-  { id: 2, nombre: 'Papel', reciclable: true, img: '/images/papel.png' },
-  { id: 3, nombre: 'Lata de aluminio', reciclable: true, img: '/images/lata_aluminio.png' },
-  { id: 4, nombre: 'Pañal', reciclable: false, img: '/images/panal.png' },
-  { id: 5, nombre: 'Envoltura de plástico', reciclable: false, img: '/images/envoltura_plastico.png' },
-  { id: 6, nombre: 'Cáscaras de frutas', reciclable: false, img: '/images/cascaras_frutas.png' },
+  { id: 1, nombre: 'Botella de plástico', reciclable: true, img: Botella},
+  { id: 2, nombre: 'Papel', reciclable: false, img: Papel },
+  { id: 3, nombre: 'Lata de aluminio', reciclable: true, img: Lata },
+  { id: 4, nombre: 'Pañal', reciclable: false, img: Pañal },
+  { id: 5, nombre: 'Envoltura de plástico', reciclable: false, img: Envoltura },
+  { id: 6, nombre: 'Cáscaras de frutas', reciclable: false, img: Cascara },
 ];
 
 function App() {
@@ -22,7 +28,7 @@ function App() {
   }, []);
 
   const inicializarCartas = () => {
-    // Duplicamos y mezclamos las cartas
+ 
     const cartasDuplicadas = [...objetosBasura, ...objetosBasura].sort(() => Math.random() - 0.5);
     setCartas(cartasDuplicadas.map(carta => ({ ...carta, volteada: false, emparejada: false })));
   };
