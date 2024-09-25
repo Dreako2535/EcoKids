@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import ObjetoReciclable from '../componentes/objetoReciclabe';
-import Temporizador from '../componentes/temporizador';
-import Puntuacion from '../componentes/puntuacion';
+import ObjetoReciclable from '../components/objetoReciclabe';
+import Temporizador from '../components/temporizador';
+import Puntuacion from '../components/puntuacion';
 import Botella from '../imgenes/botella-plastica.png'
 import Papel from '../imgenes/papel.png'
 import Lata from '../imgenes/lata.png'
@@ -62,7 +62,7 @@ function App() {
 
   return (
     <div style={{ textAlign: 'center' }}>
-      <h1>Encuentra el Objeto Reciclable</h1>
+      <h1>Encuentra el Reciduo Reciclable</h1>
       <Temporizador tiempoRestante={tiempoRestante} />
       <Puntuacion puntuacion={puntuacion} />
       <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '20px' }}>

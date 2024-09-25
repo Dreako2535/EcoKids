@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import ContenedorBasura from '../componentes/Basurero';
-import BasuraItem from '../componentes/Basura';
-import Temporizador from '../componentes/temporizador';
-import Puntuacion from '../componentes/puntuacion';
+import ContenedorBasura from '../components/Basurero';
+import BasuraItem from '../components/Basura';
+import Temporizador from '../components/temporizador';
+import Puntuacion from '../components/puntuacion';
 import Botella from '../imgenes/botella-plastica.png'
 import Lata from '../imgenes/lata.png'
 import Papel from '../imgenes/papel.png'

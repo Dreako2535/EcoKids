@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Tarjeta from '../componentes/Tarjeta';
-import Puntuacion from '../componentes/putua';
+import Tarjeta from '../components/Tarjeta';
+import Puntuacion from '../components/putua';
 import Botella from '../imgenes/botella-plastica.png'
 import Papel from '../imgenes/papel.png'
 import Lata from '../imgenes/lata.png'

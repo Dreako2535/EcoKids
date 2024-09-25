@@ -9,10 +9,7 @@ const App = () => {
   const routing = useRoutes(Themeroutes);
 
   return <div className="dark">{routing}</div>;
-  // return(
-  // <div className="App">
-  //     <Blog/>
-  //   </div>)
+
 };
 
 export default App;

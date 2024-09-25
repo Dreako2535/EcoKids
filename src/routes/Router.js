@@ -16,7 +16,10 @@ const Grid = lazy(() => import("../views/ui/Grid"));
 const Tables = lazy(() => import("../views/ui/Tables"));
 const Forms = lazy(() => import("../views/ui/Forms"));
 const Breadcrumbs = lazy(() => import("../views/ui/Breadcrumbs"));
-const Blog = lazy(() => import("../components/dashboard/Blog.js"))
+const Blog = lazy(() => import("../components/dashboard/Blog.js"));
+const Juego1 = lazy(()  => import("../views/juego1.js"));
+const Juego2 = lazy(() => import("../views/juego2.js"));
+const Juego3 = lazy(() => import("../views/juego3.js"))
 
 /*****Routes******/
 
@@ -36,7 +39,10 @@ const ThemeRoutes = [
       { path: "/table", exact: true, element: <Tables /> },
       { path: "/forms", exact: true, element: <Forms /> },
       { path: "/breadcrumbs", exact: true, element: <Breadcrumbs /> },
-      { path: "/blog", exact: true, element: <Blog/>}
+      { path: "/blog", exact: true, element: <Blog/>},
+      { path: "/game", exact: true, element: <Juego1 /> },
+      { path: "/game1", exact: true, element: <Juego2 /> },
+      { path: "/game2", exact: true, element: <Juego3 /> },
     ],
   },
 ];

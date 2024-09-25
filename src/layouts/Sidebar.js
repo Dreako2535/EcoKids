@@ -2,7 +2,7 @@ import { Button, Nav, NavItem } from "reactstrap";
 import { Link, useLocation } from "react-router-dom";
 import user1 from "../assets/images/users/user4.jpg";
 import probg from "../assets/images/bg/bg5.jpg";
-import { BiJoystick } from "react-icons/bi";
+
 
 
 
@@ -42,7 +42,7 @@ const Sidebar = () => {
         style={{ background: `url(${probg}) no-repeat`,width: "auto", height: "auto", display: "flex"}}
       >
         <div className="p-5 d-flex mt-5">
-          {/* <img src={user1} alt="user" width="50" className="rounded-circle" /> */}
+          
           <Button
             color="white"
             className="ms-auto text-white d-lg-none"
