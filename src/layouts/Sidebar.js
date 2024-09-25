@@ -1,59 +1,31 @@
 import { Button, Nav, NavItem } from "reactstrap";
 import { Link, useLocation } from "react-router-dom";
 import user1 from "../assets/images/users/user4.jpg";
-import probg from "../assets/images/bg/download.jpg";
+import probg from "../assets/images/bg/bg5.jpg";
+import { BiJoystick } from "react-icons/bi";
+
+
 
 const navigation = [
+  
   {
-    title: "Dashboard",
-    href: "/starter",
-    icon: "bi bi-speedometer2",
-  },
-  {
-    title: "Alert",
-    href: "/alerts",
-    icon: "bi bi-bell",
-  },
-  {
-    title: "Badges",
+    title: "News",
     href: "/badges",
     icon: "bi bi-patch-check",
   },
+
   {
-    title: "Buttons",
-    href: "/buttons",
-    icon: "bi bi-hdd-stack",
-  },
-  {
-    title: "Cards",
+    title: "Foros",
     href: "/cards",
     icon: "bi bi-card-text",
   },
+  
   {
-    title: "Grid",
-    href: "/grid",
-    icon: "bi bi-columns",
+    title: "Juegos",
+    href: "/buttons",
+    icon: "bi bi-controller"
   },
-  {
-    title: "Table",
-    href: "/table",
-    icon: "bi bi-layout-split",
-  },
-  {
-    title: "Forms",
-    href: "/forms",
-    icon: "bi bi-textarea-resize",
-  },
-  {
-    title: "Breadcrumbs",
-    href: "/breadcrumbs",
-    icon: "bi bi-link",
-  },
-  {
-    title: "About",
-    href: "/about",
-    icon: "bi bi-people",
-  },
+ 
 ];
 
 const Sidebar = () => {
@@ -66,11 +38,11 @@ const Sidebar = () => {
     <div>
       <div className="d-flex align-items-center"></div>
       <div
-        className="profilebg"
-        style={{ background: `url(${probg}) no-repeat` }}
+        className="profilebg p-5 "
+        style={{ background: `url(${probg}) no-repeat`,width: "auto", height: "auto", display: "flex"}}
       >
-        <div className="p-3 d-flex">
-          <img src={user1} alt="user" width="50" className="rounded-circle" />
+        <div className="p-5 d-flex mt-5">
+          {/* <img src={user1} alt="user" width="50" className="rounded-circle" /> */}
           <Button
             color="white"
             className="ms-auto text-white d-lg-none"
@@ -79,7 +51,6 @@ const Sidebar = () => {
             <i className="bi bi-x"></i>
           </Button>
         </div>
-        <div className="bg-dark text-white p-2 opacity-75">Steave Rojer</div>
       </div>
       <div className="p-3 mt-2">
         <Nav vertical className="sidebarNav">
