@@ -38,7 +38,7 @@ const tiposBasura = [
     { id: 7, nombre: 'Restos de comida', tipo: 'Orgánicos', img: Restos },
   ];
   
-  function App() {
+  function Juego1() {
     const [puntuacion, setPuntuacion] = useState(0);
     const [tiempoRestante, setTiempoRestante] = useState(60);
     const [basuraAleatoria, setBasuraAleatoria] = useState(null);
@@ -93,4 +93,4 @@ const tiposBasura = [
     );
   }
   
-  export default App;
+  export default Juego1;
