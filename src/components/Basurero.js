@@ -1,6 +1,9 @@
 import React from 'react';
+import Cablanca from '../imgenes/cablanca.png'
+import Caverde  from '../imgenes/caverde.png'
+import Canegra from '../imgenes/canegra.png'
 
-function ContenedorBasura({ tipo, color, manejarBasuraClasificada }) {
+function ContenedorBasura({ tipo, manejarBasuraClasificada }) {
   const manejarSoltar = (e) => {
     e.preventDefault();
     manejarBasuraClasificada(tipo);
@@ -8,6 +11,13 @@ function ContenedorBasura({ tipo, color, manejarBasuraClasificada }) {
 
   const permitirSoltar = (e) => {
     e.preventDefault();
+  };
+
+  // Mapa de imágenes por tipo
+  const imagenesContenedores = {
+    'Reciclables': Cablanca,
+    'No Reciclables': Canegra,
+    'Orgánicos': Caverde,
   };
 
   return (
@@ -18,16 +28,22 @@ function ContenedorBasura({ tipo, color, manejarBasuraClasificada }) {
         width: '150px',
         height: '150px',
         margin: '0 10px',
-        backgroundColor: color,
         borderRadius: '10px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        color: '#fff',
-        fontWeight: 'bold',
+        backgroundColor: 'white', 
       }}
     >
-      {tipo}
+      <img
+        src={imagenesContenedores[tipo]}
+        alt={tipo}
+        style={{
+          maxWidth: '100%',
+          maxHeight: '100%',
+          borderRadius: '10px',
+        }}
+      />
     </div>
   );
 }
