@@ -1,12 +1,18 @@
 import './App.css';
-import Juego1 from './paginas/juego1';
+import Blog from './components/dashboard/Blog'
+// import Themeroutes from "./routes/Router";
+import { useRoutes } from "react-router-dom";
+import Themeroutes from "./routes/Router";
 
-function App() {
-  return (
-    <div className="App">
-      <Juego1/>
-    </div>
-  );
-}
+
+const App = () => {
+  const routing = useRoutes(Themeroutes);
+
+  return <div className="dark">{routing}</div>;
+  // return(
+  // <div className="App">
+  //     <Blog/>
+  //   </div>)
+};
 
 export default App;
