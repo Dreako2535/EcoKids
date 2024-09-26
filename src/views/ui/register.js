@@ -1,5 +1,7 @@
 // src/components/Register.js
 import React, { useState } from 'react';
+import { useNavigate, Link } from "react-router-dom";
+
 import styled from 'styled-components';
 import logo from '../../assets/images/logos/EcoKidslogo.png'; // Asegúrate de que esta ruta sea correcta
 import backgroundImage from '../../assets/images/bg/register.jpg'; // Cambia esta ruta a tu imagen de fondo
@@ -81,6 +83,7 @@ const Register = () => {
       setError('Passwords do not match');
     } else {
       alert('Registration successful');
+      navigate("/");
       // Aquí puedes agregar la lógica para registrar al usuario
     }
   };
@@ -121,7 +124,7 @@ const Register = () => {
           onChange={(e) => setAge(e.target.value)}
         />
         {error && <ErrorMessage>{error}</ErrorMessage>}
-        <Button type="submit">Register</Button>
+        <Button type="submit" onClick={()=>{navigate("/")}} >Register</Button>
       </RegisterForm>
     </RegisterContainer>
   );

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import styled from 'styled-components';
 import logo from '../../assets/images/logos/EcoKidslogo.png'; // Asegúrate de que esta ruta sea correcta
 import backgroundImage from "../../assets/images/bg/login.jpg";
@@ -70,11 +71,13 @@ const CreateAccountMessage = styled.p`
   font-size: 14px;
 `;
 
-const Login = () => {
+const Login = ({history}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate(); // Inicializar useNavigate
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -105,7 +108,7 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         {error && <ErrorMessage>{error}</ErrorMessage>}
-        <Button type="submit">Iniciar sesión</Button>
+        <Button onClick={()=>{navigate("/")}} type="submit">Iniciar sesión</Button>
         <CreateAccountMessage>
           ¿No tienes cuenta? <Link to="/register">Crear cuenta</Link>
         </CreateAccountMessage>

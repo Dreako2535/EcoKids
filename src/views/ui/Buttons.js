@@ -1,11 +1,8 @@
 import {
   Card,
   CardImg,
-  CardText,
   CardBody,
   CardTitle,
-  CardSubtitle,
-  CardGroup,
   Button,
   Row,
   Col,
@@ -30,17 +27,17 @@ const Cards = () => {
   
   return (
     <Row>
-      <h5 className="mb-3 mt-3">JUEGOS</h5>
+      <h5 className="mb-3 mt-3" style={{ fontSize: "24px", fontWeight: "bold", color: "#007bff" }}>JUEGOS</h5>
       <Col md="6" lg="4">
         <Card body style={{ backgroundColor: "#e6f7ff", borderRadius: "8px", boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)" }}>
-          <CardTitle tag="h5">Recicla Correctamente</CardTitle>
+          <CardTitle tag="h5" style={{ fontSize: "20px", marginBottom: "15px", color: "#007bff" }}>Recicla Correctamente</CardTitle>
           <CardImg src={J1} style={{ height: "200px", objectFit: "cover", borderRadius: "4px" }} />
           <Button color="light-warning" onClick={handleClick}>JUGAR</Button>
         </Card>
       </Col>
       <Col md="6" lg="4">
         <Card body className="text-center" style={{ backgroundColor: "#e6f7ff", borderRadius: "8px", boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)" }}>
-          <CardTitle tag="h5">Encuentra el Reciduo Reciclable</CardTitle>
+          <CardTitle tag="h5" style={{ fontSize: "20px", marginBottom: "15px", color: "#007bff" }}>Encuentra el Reciduo Reciclable</CardTitle>
           <CardImg src={J2} style={{ height: "200px", objectFit: "cover", borderRadius: "4px" }} />
           <div>
             <Button color="light-danger" onClick={handleClicks}>JUGAR</Button>
@@ -49,7 +46,7 @@ const Cards = () => {
       </Col>
       <Col md="6" lg="4">
         <Card body className="text-end" style={{ backgroundColor: "#e6f7ff", borderRadius: "8px", boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)" }}>
-          <CardTitle tag="h5">Memoria del Reciclaje</CardTitle>
+          <CardTitle tag="h5" style={{ fontSize: "20px", marginBottom: "15px", color: "#007bff" }}>Memoria del Reciclaje</CardTitle>
           <CardImg src={J3} style={{ height: "200px", objectFit: "cover", borderRadius: "4px" }} />
           <div>
             <Button color="light-success" onClick={handlesClick}>JUGAR</Button>

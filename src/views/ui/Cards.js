@@ -41,13 +41,12 @@ const Cards = () => {
   return (
     <>
       <Row>
-        <h5 className="mb-3 mt-3">FOROS</h5>
+        <h5 className="mb-3 mt-3" style={{ backgroundColor: "#e0f7fa", padding: "10px", borderRadius: "5px", color: "#00796b", textAlign: "center" }}>FOROS</h5>
         <Col md="6" lg="4">
           <StyledCard body>
-            <CardTitle tag="h5">Special Title Treatment</CardTitle>
+            <CardTitle tag="h5" style={{ color: "#00796b" }}>Título Especial</CardTitle>
             <CardText>
-              With supporting text below as a natural lead-in to additional
-              content.
+              Con texto de apoyo debajo como una introducción natural a contenido adicional.
             </CardText>
             <div>
               <Button color="light-warning" onClick={toggle}>Agregar Foro</Button>
@@ -56,10 +55,9 @@ const Cards = () => {
         </Col>
         <Col md="6" lg="4">
           <StyledCard body className="text-center">
-            <CardTitle tag="h5">Special Title Treatment</CardTitle>
+            <CardTitle tag="h5" style={{ color: "#00796b" }}>Título Especial</CardTitle>
             <CardText>
-              With supporting text below as a natural lead-in to additional
-              content.
+              Con texto de apoyo debajo como una introducción natural a contenido adicional.
             </CardText>
             <div>
               <Button color="light-danger" onClick={toggle}>Agregar Foro</Button>
@@ -68,10 +66,9 @@ const Cards = () => {
         </Col>
         <Col md="6" lg="4">
           <StyledCard body className="text-end">
-            <CardTitle tag="h5">Special Title Treatment</CardTitle>
+            <CardTitle tag="h5" style={{ color: "#00796b" }}>Título Especial</CardTitle>
             <CardText>
-              With supporting text below as a natural lead-in to additional
-              content.
+              Con texto de apoyo debajo como una introducción natural a contenido adicional.
             </CardText>
             <div>
               <Button color="light-success" onClick={toggle}>Agregar Foro</Button>
@@ -89,6 +86,7 @@ const Cards = () => {
             placeholder="Título"
             value={titulo}
             onChange={(e) => setTitulo(e.target.value)}
+            style={{ marginBottom: "10px" }} // Espacio inferior
           />
           <Input
             type="textarea"

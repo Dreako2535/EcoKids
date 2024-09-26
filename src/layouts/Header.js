@@ -77,13 +77,13 @@ const Header = () => {
             ></img>
           </DropdownToggle>
           <DropdownMenu>
-            <DropdownItem header>Info</DropdownItem>
-            <DropdownItem>My Account</DropdownItem>
-            <DropdownItem>Edit Profile</DropdownItem>
+            {/* <DropdownItem header>Info</DropdownItem> */}
+            {/* <DropdownItem>My Account</DropdownItem> */}
+            {/* <DropdownItem>Edit Profile</DropdownItem> */}
             <DropdownItem divider />
-            <DropdownItem>My Balance</DropdownItem>
-            <DropdownItem>Inbox</DropdownItem>
-            <DropdownItem>Logout</DropdownItem>
+            {/* <DropdownItem>My Balance</DropdownItem> */}
+            {/* <DropdownItem>Inbox</DropdownItem> */}
+            <DropdownItem >Logout</DropdownItem>
           </DropdownMenu>
         </Dropdown>
       </Collapse>
