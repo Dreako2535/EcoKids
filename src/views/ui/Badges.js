@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  Row,
-  Col
-} from "reactstrap";
+import { Row, Col } from "reactstrap";
 import Blog from "../../components/dashboard/Blog";
 
 const Badges = () => {
@@ -10,7 +7,7 @@ const Badges = () => {
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
 
-  // Usa tu clave de API de NewsAPI
+  
   const apiKey = "8c6e347bf60d427abdd7dc01be5f5aa6"; 
 
   useEffect(() => {
@@ -50,11 +47,11 @@ const Badges = () => {
         {articulos.map((articulo, index) => (
           <Col sm="6" lg="6" xl="3" key={index}>
             <Blog
-              image={articulo.urlToImage || "https://via.placeholder.com/300"} // Imagen del artículo o imagen de reserva
-              title={articulo.title} // Título del artículo
-              subtitle={`${new Date(articulo.publishedAt).toLocaleDateString()} - ${articulo.source.name}`} // Fecha y fuente
-              text={articulo.description || "Descripción no disponible"} // Descripción del artículo
-              color="primary" // Color del botón
+              image={articulo.urlToImage || "https://via.placeholder.com/300"} 
+              title={articulo.title}
+              subtitle={`${new Date(articulo.publishedAt).toLocaleDateString()} - ${articulo.source.name}`} 
+              text={articulo.description || "Descripción no disponible"} 
+              color="primary" 
             />
           </Col>
         ))}
