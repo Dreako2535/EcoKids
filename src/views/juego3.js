@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Tarjeta from '../components/Tarjeta';
-import Puntuacion from '../components/putua';
-import Botella from '../imgenes/botella-plastica.png'
-import Papel from '../imgenes/papel.png'
-import Lata from '../imgenes/lata.png'
-import Pañal from '../imgenes/Pañal.png'
-import Envoltura from '../imgenes/Envoltura.png'
-import Cascara from '../imgenes/cascara.png'
+import Puntuacion from '../components/puntuacion'; // Asegúrate de que este sea el nombre correcto
+import Botella from '../imgenes/botella-plastica.png';
+import Papel from '../imgenes/papel.png';
+import Lata from '../imgenes/lata.png';
+import Pañal from '../imgenes/Pañal.png';
+import Envoltura from '../imgenes/Envoltura.png';
+import Cascara from '../imgenes/cascara.png';
 
 const objetosBasura = [
-  { id: 1, nombre: 'Botella de plástico', reciclable: true, img: Botella},
+  { id: 1, nombre: 'Botella de plástico', reciclable: true, img: Botella },
   { id: 2, nombre: 'Papel', reciclable: false, img: Papel },
   { id: 3, nombre: 'Lata de aluminio', reciclable: true, img: Lata },
   { id: 4, nombre: 'Pañal', reciclable: false, img: Pañal },
@@ -28,13 +28,16 @@ function App() {
   }, []);
 
   const inicializarCartas = () => {
- 
     const cartasDuplicadas = [...objetosBasura, ...objetosBasura].sort(() => Math.random() - 0.5);
     setCartas(cartasDuplicadas.map(carta => ({ ...carta, volteada: false, emparejada: false })));
   };
 
   const manejarSeleccionCarta = (index) => {
     const nuevaCartas = [...cartas];
+
+    // Evitar que se seleccionen cartas emparejadas
+    if (nuevaCartas[index].emparejada || nuevaCartas[index].volteada) return;
+
     nuevaCartas[index].volteada = true;
     setCartas(nuevaCartas);
 
@@ -47,10 +50,11 @@ function App() {
 
   const verificarEmparejamiento = (index1, index2) => {
     const nuevaCartas = [...cartas];
+
     if (nuevaCartas[index1].nombre === nuevaCartas[index2].nombre) {
       nuevaCartas[index1].emparejada = true;
       nuevaCartas[index2].emparejada = true;
-      setPuntuacion(puntuacion + 10);
+      setPuntuacion(prev => prev + 10);
     } else {
       setTimeout(() => {
         nuevaCartas[index1].volteada = false;
@@ -58,13 +62,14 @@ function App() {
         setCartas(nuevaCartas);
       }, 1000);
     }
+
     setCartaSeleccionada(null);
-    setMovimientos(movimientos + 1);
+    setMovimientos(prev => prev + 1);
   };
 
   return (
-    <div style={{ textAlign: 'center' }}>
-      <h1>Memoria del Reciclaje</h1>
+    <div style={{ textAlign: 'center', padding: '20px', backgroundColor: '#f9f9f9', borderRadius: '8px' }}>
+      <h1 style={{ color: '#333' }}>Memoria del Reciclaje</h1>
       <Puntuacion puntuacion={puntuacion} movimientos={movimientos} />
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 150px)', gap: '10px', justifyContent: 'center' }}>
         {cartas.map((carta, index) => (
