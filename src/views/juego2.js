@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react';
 import ObjetoReciclable from '../components/objetoReciclabe';
 import Temporizador from '../components/temporizador';
 import Puntuacion from '../components/puntuacion';
-import Botella from '../imgenes/botella-plastica.png'
-import Papel from '../imgenes/papel.png'
-import Lata from '../imgenes/lata.png'
-import Pañal from '../imgenes/Pañal.png'
-import Envoltura from '../imgenes/Envoltura.png'
-import Cascara from '../imgenes/cascara.png'
-
+import Botella from '../imgenes/botella-plastica.png';
+import Papel from '../imgenes/papel.png';
+import Lata from '../imgenes/lata.png';
+import Pañal from '../imgenes/Pañal.png';
+import Envoltura from '../imgenes/Envoltura.png';
+import Cascara from '../imgenes/cascara.png';
 
 const objetosBasura = [
   { id: 1, nombre: 'Botella de plástico', reciclable: true, img: Botella },
@@ -61,11 +60,11 @@ function App() {
   };
 
   return (
-    <div style={{ textAlign: 'center' }}>
-      <h1>Encuentra el Reciduo Reciclable</h1>
+    <div style={{ textAlign: 'center', backgroundColor: '#f4f4f4', padding: '20px', borderRadius: '8px' }}>
+      <h1 style={{ color: '#333', marginBottom: '20px' }}>Encuentra el Residuos Reciclable</h1>
       <Temporizador tiempoRestante={tiempoRestante} />
       <Puntuacion puntuacion={puntuacion} />
-      <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '20px' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '20px', marginTop: '20px' }}>
         {basurasMostradas.map((basura) => (
           <ObjetoReciclable
             key={basura.id}
