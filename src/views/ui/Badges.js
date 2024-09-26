@@ -1,81 +1,64 @@
+import React, { useEffect, useState } from "react";
 import {
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
-  CardGroup,
-  Button,
   Row,
-  Col,
+  Col
 } from "reactstrap";
 import Blog from "../../components/dashboard/Blog";
-import bg1 from "../../assets/images/bg/bg1.jpg";
-import bg2 from "../../assets/images/bg/bg2.jpg";
-import bg3 from "../../assets/images/bg/bg3.jpg";
-import bg4 from "../../assets/images/bg/bg4.jpg";
-
-const BlogData = [
-  {
-    image: bg1,
-    title: "This is simple blog",
-    subtitle: "2 comments, 1 Like",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    btnbg: "primary",
-  },
-  {
-    image: bg2,
-    title: "Lets be simple blog",
-    subtitle: "2 comments, 1 Like",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    btnbg: "primary",
-  },
-  {
-    image: bg3,
-    title: "Don't Lamp blog",
-    subtitle: "2 comments, 1 Like",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    btnbg: "primary",
-  },
-  {
-    image: bg4,
-    title: "Simple is beautiful",
-    subtitle: "2 comments, 1 Like",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    btnbg: "primary",
-  },
-];
 
 const Badges = () => {
+  const [articulos, setArticulos] = useState([]);
+  const [cargando, setCargando] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Usa tu clave de API de NewsAPI
+  const apiKey = "8c6e347bf60d427abdd7dc01be5f5aa6"; 
+
+  useEffect(() => {
+    const obtenerArticulos = async () => {
+      try {
+        const respuesta = await fetch(
+          `https://newsapi.org/v2/everything?q=reciclaje&language=es&apiKey=${apiKey}`
+        );
+        if (!respuesta.ok) {
+          throw new Error("Error al obtener los artículos");
+        }
+        const datos = await respuesta.json();
+        setArticulos(datos.articles); 
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setCargando(false); 
+      }
+    };
+
+    obtenerArticulos();
+  }, [apiKey]);
+
+  
+  if (cargando) {
+    return <div>Cargando artículos...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   return (
-    <div style={{marginTop: "20px"}}>
-      {/* --------------------------------------------------------------------------------*/}
-      {/* Card-1*/}
-      {/* --------------------------------------------------------------------------------*/}
-      <h5 className="mb-3" style={{marginTop: "40px"}}>Basic Card</h5>
-      <Row style={{marginTop: "20px"}}>
-        {BlogData.map((blg, index) => (
+    <div style={{ marginTop: "20px" }}>
+      <h5 className="mb-3" style={{ marginTop: "40px" }}>Artículos sobre Reciclaje</h5>
+      <Row style={{ marginTop: "20px" }}>
+        {articulos.map((articulo, index) => (
           <Col sm="6" lg="6" xl="3" key={index}>
-            <Blog 
-              image={blg.image}
-              title={blg.title}
-              subtitle={blg.subtitle}
-              text={blg.description}
-              color={blg.btnbg}
+            <Blog
+              image={articulo.urlToImage || "https://via.placeholder.com/300"} // Imagen del artículo o imagen de reserva
+              title={articulo.title} // Título del artículo
+              subtitle={`${new Date(articulo.publishedAt).toLocaleDateString()} - ${articulo.source.name}`} // Fecha y fuente
+              text={articulo.description || "Descripción no disponible"} // Descripción del artículo
+              color="primary" // Color del botón
             />
           </Col>
         ))}
       </Row>
-      {/* --------------------------------------------------------------------------------*/}
-      {/* Card-2*/}
-      {/* --------------------------------------------------------------------------------*/}
-     
-     
     </div>
   );
 };
