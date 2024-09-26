@@ -1,25 +1,13 @@
-import {
-  Card,
-  CardBody,
-  CardImg,
-  CardSubtitle,
-  CardText,
-  CardTitle,
-  Button,
-} from "reactstrap";
-// import Image from "../../assets/images/users/user1.jpg"
+import React from 'react';
 
-const Blog = (props) => {
+const Blog = ({ image, title, subtitle, text, color }) => {
   return (
-    <Card>
-      <CardImg alt="Card image cap"  src={Image} />
-      <CardBody className="p-4">
-        <CardTitle tag="h5">{props.title}</CardTitle>
-        <CardSubtitle>{props.subtitle}</CardSubtitle>
-        <CardText className="mt-3">{props.text}</CardText>
-        <Button color={props.color}>Read More</Button>
-      </CardBody>
-    </Card>
+    <div className={`blog-card bg-${color}`} style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '16px', marginBottom: '16px' }}>
+      <img src={image} alt={title} style={{ width: "100%", height: "auto", borderRadius: '8px' }} />  {/* Imagen con estilo */}
+      <h3>{title}</h3>
+      <p>{subtitle}</p>
+      <p>{text}</p>
+    </div>
   );
 };
 
