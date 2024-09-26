@@ -83,7 +83,7 @@ const Register = () => {
       setError('Passwords do not match');
     } else {
       alert('Registration successful');
-      navigate("/");
+    //   navigate("/");
       // Aquí puedes agregar la lógica para registrar al usuario
     }
   };
@@ -124,7 +124,7 @@ const Register = () => {
           onChange={(e) => setAge(e.target.value)}
         />
         {error && <ErrorMessage>{error}</ErrorMessage>}
-        <Button type="submit" onClick={()=>{navigate("/")}} >Register</Button>
+        <Button type="submit"  >Register</Button>
       </RegisterForm>
     </RegisterContainer>
   );
