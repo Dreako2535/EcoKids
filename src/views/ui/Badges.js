@@ -59,10 +59,6 @@ const Badges = () => {
           </Col>
         ))}
       </Row>
-<<<<<<< HEAD
-=======
-     
->>>>>>> Nixon
     </div>
   );
 };

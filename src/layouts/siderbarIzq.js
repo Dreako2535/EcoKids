@@ -46,12 +46,16 @@ const Sidebar = () => {
     };
     let location = useLocation();
 
+
     return (
         <div>
             <div className="d-flex align-items-center"></div>
             <div className="profilebg mt-5"
                 style={{ background: "green", width: "auto", height: "100PX", display: "flex", alignItems: "Center", justifyContent: "center", marginLeft: "-80px", zIndex: 2}}>
-                <h1 style={{ whiteSpace: "nowrap", margin: "mt-1" }}>ECO NEWS</h1>
+                <h1 style={{ whiteSpace: "nowrap", margin: "mt-1" }}
+                > {location.pathname=='/badges'?<>ECO NEWS</>:<></>}
+                {location.pathname=='/cards'?<>ECO FORUM</>:<></>}
+                {location.pathname=='/buttons'?<>ECO GAME</>:<></>}</h1>
             </div>
             <div>
                 <Card

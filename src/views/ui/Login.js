@@ -1,17 +1,21 @@
-
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import logo from '../../assets/images/logos/EcoKidslogo.png'; // Asegúrate de que esta ruta sea correcta
+import backgroundImage from "../../assets/images/bg/login.jpg";
+import { useNavigate, Link } from "react-router-dom";
 
 const LoginContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  background-image: url(${backgroundImage});
+  background-size: cover; 
+  background-position: center; 
 `;
 
 const LoginForm = styled.form`
-  background: #fff;
+  background: rgba(255, 255, 255, 0.5);
   padding: 40px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -22,6 +26,11 @@ const LoginForm = styled.form`
 const Title = styled.h1`
   font-size: 24px;
   color: #333;
+  margin-bottom: 20px;
+`;
+
+const Logo = styled.img`
+  width: 100px;
   margin-bottom: 20px;
 `;
 
@@ -56,15 +65,23 @@ const ErrorMessage = styled.p`
   font-size: 14px;
 `;
 
+const CreateAccountMessage = styled.p`
+  margin-top: 20px;
+  font-size: 14px;
+`;
+
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate(); // Inicializar useNavigate
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Aquí deberías validar tus credenciales
     if (email === 'admin@example.com' && password === 'password') {
       alert('Login successful');
+      navigate('/'); // Redirige al FullLayout después de iniciar sesión
     } else {
       setError('Invalid email or password');
     }
@@ -73,6 +90,7 @@ const Login = () => {
   return (
     <LoginContainer>
       <LoginForm onSubmit={handleSubmit}>
+        <Logo src={logo} alt="EcoKids Logo" />
         <Title>Login</Title>
         <Input
           type="email"
@@ -87,7 +105,10 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         {error && <ErrorMessage>{error}</ErrorMessage>}
-        <Button type="submit">Sign In</Button>
+        <Button type="submit">Iniciar sesión</Button>
+        <CreateAccountMessage>
+          ¿No tienes cuenta? <Link to="/register">Crear cuenta</Link>
+        </CreateAccountMessage>
       </LoginForm>
     </LoginContainer>
   );

@@ -9,6 +9,7 @@ const FullLayout = lazy(() => import("../layouts/FullLayout.js"));
 // const Starter = lazy(() => import("../views/Starter.js"));
 // const About = lazy(() => import("../views/About.js"));
 const Login = lazy(() => import("../views/ui/Login"));
+const Register = lazy(() => import("../views/ui/register"));
 const Badges = lazy(() => import("../views/ui/Badges"));
 const Buttons = lazy(() => import("../views/ui/Buttons"));
 const Cards = lazy(() => import("../views/ui/Cards"));
@@ -18,15 +19,20 @@ const Juego3 = lazy(() => import("../views/juego3.js"))
 
 /*****Routes******/
 
+
 const ThemeRoutes = [
+  { path: "/login", exact: true, element: <Login /> },
+  { path: "/register", exact: true, element: <Register /> },
+
+
   {
     path: "/",
     element: <FullLayout />,
     children: [
+      { path: "/", element: <Navigate to="/login" /> },
     //   { path: "/", element: <Navigate to="/starter" /> },
     //   { path: "/starter", exact: true, element: <Starter /> },
     //   { path: "/about", exact: true, element: <About /> },
-      { path: "/login", exact: true, element: <Login /> },
       { path: "/badges", exact: true, element: <Badges /> },
       { path: "/buttons", exact: true, element: <Buttons /> },
       { path: "/cards", exact: true, element: <Cards /> },
