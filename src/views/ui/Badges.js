@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  Row,
-  Col
-} from "reactstrap";
+import { Row, Col } from "reactstrap";
 import Blog from "../../components/dashboard/Blog";
 
 const Badges = () => {
@@ -10,6 +7,7 @@ const Badges = () => {
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
 
+  // Usa tu clave de API de NewsAPI
   const apiKey = "8c6e347bf60d427abdd7dc01be5f5aa6"; 
 
   useEffect(() => {
@@ -65,7 +63,6 @@ const Badges = () => {
               subtitle={`${new Date(articulo.publishedAt).toLocaleDateString()} - ${articulo.source.name}`} // Fecha y fuente
               text={articulo.description || "Descripción no disponible"} // Descripción del artículo
               color="primary" // Color del botón
-              style={{ boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)", marginBottom: "20px", borderRadius: "8px" }} // Añadir sombra y bordes
             />
           </Col>
         ))}
