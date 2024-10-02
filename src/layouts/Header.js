@@ -1,5 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+import { Link, useNavigate } from "react-router-dom";
 import {
   Navbar,
   Collapse,
@@ -21,7 +23,6 @@ import user1 from "../assets/images/users/user4.jpg";
 
 const Header = () => {
   const [isOpen, setIsOpen] = React.useState(false);
-
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
 
   const toggle = () => setDropdownOpen((prevState) => !prevState);
@@ -31,9 +32,15 @@ const Header = () => {
   const showMobilemenu = () => {
     document.getElementById("sidebarArea").classList.toggle("showSidebar");
   };
+  const navigate = useNavigate();
+
+  // Nombre del usuario (puede venir de un prop o de un estado global)
+  const userName = "Nixon"; // Ejemplo: Este valor debería venir de la sesión o estado global
+
   return (
-    <Navbar color="success" dark expand="md" className="fix-header">
+    <Navbar color="success" dark expand="md" className="fix-header" style={{ position: "relative" }}>
       <div className="d-flex align-items-center">
+        {/* Logo en la esquina izquierda */}
         <div className="d-lg-block d-none me-5 pe-3">
           <Logo />
         </div>
@@ -42,12 +49,34 @@ const Header = () => {
         </NavbarBrand>
         <Button
           color="primary"
-          className=" d-lg-none"
+          className="d-lg-none"
           onClick={() => showMobilemenu()}
         >
           <i className="bi bi-list"></i>
         </Button>
       </div>
+
+      {/* Título centrado "ECOKIDS" */}
+      <div
+        className="text-center"
+        style={{
+          position: "absolute",
+          left: "50%",
+          transform: "translateX(-50%)", // Asegura que el título esté en el centro horizontal
+          top: "50%",
+          transform: "translate(-50%, -50%)", // Centra también verticalmente en el `Navbar`
+          margin: 0,
+          fontWeight: "bold",
+          color: "#fff", // Letras blancas
+          fontSize: "60px",
+          letterSpacing: "12px",
+          opacity: 0.8
+          
+        }}
+      >
+        ECOKIDS
+      </div>
+
       <div className="hstack gap-2">
         <Button
           color="primary"
@@ -63,27 +92,27 @@ const Header = () => {
         </Button>
       </div>
 
+      {/* Menú desplegable y foto de perfil con nombre del usuario */}
       <Collapse navbar isOpen={isOpen}>
-        <Nav className="me-auto" navbar >
-          
-        </Nav>
+        <Nav className="me-auto" navbar></Nav>
         <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-          <DropdownToggle color="transparent">
+          <DropdownToggle color="transparent" className="d-flex align-items-center">
+            {/* Imagen del perfil del usuario */}
             <img
               src={user1}
               alt="profile"
               className="rounded-circle"
               width="50"
-            ></img>
+              style={{ marginRight: "10px" }}
+            />
+            {/* Nombre del usuario */}
+            <span style={{ color: "#black", fontWeight: "bold", fontSize: "16px", fontstyle:"italic" }}>
+              {userName}
+            </span>
           </DropdownToggle>
           <DropdownMenu>
-            {/* <DropdownItem header>Info</DropdownItem> */}
-            {/* <DropdownItem>My Account</DropdownItem> */}
-            {/* <DropdownItem>Edit Profile</DropdownItem> */}
             <DropdownItem divider />
-            {/* <DropdownItem>My Balance</DropdownItem> */}
-            {/* <DropdownItem>Inbox</DropdownItem> */}
-            <DropdownItem >Logout</DropdownItem>
+            <DropdownItem onClick={() => navigate("/login")}>Logout</DropdownItem>
           </DropdownMenu>
         </Dropdown>
       </Collapse>
